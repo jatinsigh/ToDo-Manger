@@ -1,0 +1,8 @@
+{% extends "Activities/base.html" %}
+{% block content %}
+        <h1>If Task Completed, then Delete it :)</h1>
+    <div class="container my-3 p-3 border">
+        <p class="lead">{{object.content}}</p>
+        <a class=" btn btn-secondary btn-sm mt-1 mb-1 "href="{% url 'delete-task' object.author.username object.id%}">Delete</a>
+    </div>
+{% endblock content %}

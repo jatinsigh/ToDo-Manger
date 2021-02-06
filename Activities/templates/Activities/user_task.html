@@ -1,0 +1,10 @@
+{% extends "Activities/base.html" %}
+{% block content %}
+    <h1>To Do Activities</h1>
+    <div class="container p-3 my-2 border ">
+    {% for tks in tk %}
+        <a href="{% url 'detail-task' tks.author.username tks.id %}" class="btn">{{tks.content}} </a>
+        <br><br>
+    {% endfor %}
+    </div>
+{% endblock content %}

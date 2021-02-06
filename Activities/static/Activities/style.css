@@ -1,0 +1,23 @@
+.hello {
+    background-color:black;
+    color:white;
+    padding-top:15px;
+    padding-bottom:15px;
+    padding-left:150px;
+    padding-right:150px;
+}
+
+.right{
+    float:right;
+}
+.btn{
+    background-color:black;
+    color:white;
+}
+.article{
+    padding-left:10px;
+    padding-top:20px;
+    font-weight:30px;
+    font-size:40px;
+    font:Arial;
+}

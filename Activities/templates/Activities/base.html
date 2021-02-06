@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" >
+    <link rel="stylesheet" type="text/css" href="{% static 'Activities/style.css'%}">
+    <title>To-Do Manager</title>
+</head>
+<body>
+    <div class="hello">
+		<a class="btn" href="{% url 'app-home'%}">Home</a>
+		<a class="btn" href="{% url 'app-about'%}">About</a>
+        <div class="right">
+            {% if user.is_authenticated %}
+                <a class="btn" href="{% url 'add-task'%}">Add Task</a>
+                <a class="btn" href="{% url 'user-task' user.username %}">Task</a>
+                <a class="btn" href="{%url 'logout'%}">Logout</a>
+            {% else%}
+                <a class="btn" href="{% url 'login' %}">Login</a>
+                <a class="btn" href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </div>
+	</div>
+    <div style="margin:0px 40px 10px 40px">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{message.tags}}">
+                        {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <main class="container p-3 my-3 ">
+        {%block content%}{%endblock%}
+    </main>
+</body>
+</html>
